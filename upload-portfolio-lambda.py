@@ -26,7 +26,7 @@ def lambda_handler(event, context):
                     ExtraArgs={'ContentType': mimetypes.guess_type(nm)[0]})
                 portfolio_bucket.Object(nm).Acl().put(ACL='public-read')
 
-        topic.publish(Subject="Portfolio Deployed", Message="Portfolio deploy was successful.")
+        topic.publish(Subject="Portfolio Deployed Successfully", Message="Portfolio deploy was successful.")
     except:
         topic.publish(Subject="Portfolio Deploy Failed", Message="Portfolio deploy was unsuccessful.")
         raise
